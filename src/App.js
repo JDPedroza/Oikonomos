@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+//css
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+//router
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+//pages
+import Main from "./pages/Main";
+import Estates from "./pages/Estates";
+import Estate from "./pages/Estate"
+
+//components
+import Navbar from "./components/navbar";
+
+//theme
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
+import theme from "./theme/theme";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <MuiThemeProvider theme={theme}>
+        <Navbar />
+        <Switch>
+          <Route path="/estate/id" exact>
+            <Estate />
+          </Route>
+          <Route path="/estates" exact>
+            <Estates />
+          </Route>
+          <Route path="/" exact>
+            <Main />
+          </Route>
+        </Switch>
+      </MuiThemeProvider>
+    </Router>
   );
 }
 

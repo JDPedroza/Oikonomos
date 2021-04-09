@@ -1,38 +1,95 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.banner {
+  background: no-repeat center/100% url(./multimedia/img/banner_final.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 0;
+  margin-top: 0;
   min-height: 100vh;
+}
+
+.cont-banner {
+  background-color: rgb(0 0 0 / 40%);
+  width: 100%;
+  height: 100%;
+  color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  z-index: 3;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link {
+  font-size: 0.8rem;
+  text-align: end;
+}
+.nav-link:hover {
+  cursor: pointer;
+  color: rgba(120, 185, 22, 0.74) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.elemento {
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgb(120 185 22 / 30%);
+  -webkit-box-shadow: 6px 4px 15px -5px rgba(0, 0, 0, 0.87);
+  -moz-box-shadow: 6px 4px 15px -5px rgba(0, 0, 0, 0.87);
+  box-shadow: 6px 4px 15px -5px rgba(0, 0, 0, 0.87);
+  text-align: center;
+  display: flex;
+}
+
+.divSimulation {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.divSimulation:before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+  border-left: solid 5px #9bc45e;
+  z-index: -1;
+  transform: skewX(5deg);
+  transform-origin: 0 0;
+}
+
+.divWork {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.divWork:before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgb(255, 255, 255);
+  border-right: solid 5px #9bc45e;
+  z-index: -1;
+  transform: skewX(-5deg);
+  transform-origin: 0 0;
+}
+
+@media (max-width: 960px) {
+  .divWork {
+    display: none;
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (max-width: 960px) {
+  .divSimulation {
+    display: none;
   }
 }
